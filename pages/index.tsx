@@ -4,6 +4,7 @@ import utilStyles from "../styles/utils.module.css";
 import Link from "next/link";
 import Date from "../components/Date"
 import { getSortedPostsData } from "../utils/posts";
+import { GetStaticProps } from "next";
 
 export default function Home({ postsData }) {
   return (
@@ -34,7 +35,7 @@ export default function Home({ postsData }) {
   );
 }
 
-export async function getStaticProps() {
+export const getStaticProps: GetStaticProps = async(context) => {
   const postsData = getSortedPostsData();
 
   return {
